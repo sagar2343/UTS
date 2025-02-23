@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:utss/config/theme/app_theme.dart';
-import 'package:utss/features/home/controller/home_controller.dart';
-import 'package:utss/features/showTicket/views/pages/showticket_screen.dart';
+
+import '../../../../config/theme/app_theme.dart';
+import '../../../showTicket/views/pages/showticket_screen.dart';
+import '../../controller/home_controller.dart';
 
 
 class HomeScreen extends StatefulWidget {

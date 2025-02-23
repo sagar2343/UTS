@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:utss/features/home/views/pages/home_screen.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'config/theme/app_theme.dart';
+import 'features/home/views/pages/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'UTS',
       theme: myAppTheme,
       home: const HomeScreen(),
+      builder: EasyLoading.init(),
     );
   }
 }

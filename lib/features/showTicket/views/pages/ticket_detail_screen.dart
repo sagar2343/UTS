@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
-import 'package:utss/config/theme/app_theme.dart';
+import 'package:newuts/features/showTicket/controller/ticket_detail_controller.dart';
+
+import '../../../../config/theme/app_theme.dart';
 
 class TicketDetailScreen extends StatefulWidget {
   const TicketDetailScreen({super.key});
@@ -10,6 +12,18 @@ class TicketDetailScreen extends StatefulWidget {
 }
 
 class _TicketDetailScreenState extends State<TicketDetailScreen> {
+  late final TicketDetailController _controller;
+
+  @override
+  void initState() {
+    _controller = TicketDetailController(context: context, reloadData: reloadData);
+    super.initState();
+  }
+
+  void reloadData(){
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
@@ -107,7 +121,7 @@ class _TicketDetailScreenState extends State<TicketDetailScreen> {
                             Stack(
                               children: [
                                 Center(child: Text('ADULT SEASON',style: Theme.of(context).textTheme.titleSmall!.copyWith(fontWeight: FontWeight.w600))),
-                                Align(alignment: Alignment.centerRight,child: Text('21/12/2024',style: Theme.of(context).textTheme.titleSmall!.copyWith(letterSpacing: 0.8,fontWeight: FontWeight.w600)))
+                                Align(alignment: Alignment.centerRight,child: Text('18/02/2025',style: Theme.of(context).textTheme.titleSmall!.copyWith(letterSpacing: 0.8,fontWeight: FontWeight.w600)))
                               ],
                             ),
                             Row(
@@ -260,9 +274,9 @@ class _TicketDetailScreenState extends State<TicketDetailScreen> {
                               children: [
                                 Text('Validity: ',style: Theme.of(context).textTheme.bodyMedium!.copyWith()),
                                 Text('FROM ',style: Theme.of(context).textTheme.bodyMedium!.copyWith()),
-                                Text('21/12/2024',style: Theme.of(context).textTheme.bodyMedium!.copyWith(letterSpacing: 0.8,fontWeight: FontWeight.bold,color: Colors.red[800])),
+                                Text('18/02/2025',style: Theme.of(context).textTheme.bodyMedium!.copyWith(letterSpacing: 0.9,fontWeight: FontWeight.bold,color: Colors.red[800])),
                                 Text(' To ',style: Theme.of(context).textTheme.bodyMedium!.copyWith()),
-                                Text('20/01/2025',style: Theme.of(context).textTheme.bodyMedium!.copyWith(letterSpacing: 0.8,fontWeight: FontWeight.bold,color: Colors.red[800])),
+                                Text('17/03/2025',style: Theme.of(context).textTheme.bodyMedium!.copyWith(letterSpacing: 0.9,fontWeight: FontWeight.bold,color: Colors.red[800])),
                               ],
                             ),
                             Row(
@@ -272,7 +286,7 @@ class _TicketDetailScreenState extends State<TicketDetailScreen> {
                                 Text('Distance: 44 km',style: Theme.of(context).textTheme.titleSmall!.copyWith()),
                               ],
                             ),
-                            Text('Booking Time: 21/12/2024 10:36',style: Theme.of(context).textTheme.bodyMedium!.copyWith(letterSpacing: 0.8,fontWeight: FontWeight.bold)),
+                            Text('Booking Time: 18/02/2025 10:36',style: Theme.of(context).textTheme.bodyMedium!.copyWith(letterSpacing: 0.9,fontWeight: FontWeight.bold)),
                           ],
                         ),
                       ),
@@ -300,7 +314,11 @@ class _TicketDetailScreenState extends State<TicketDetailScreen> {
                                     style: Theme.of(context).textTheme.bodySmall!.copyWith(color: myPrimaryColor,decorationColor: myPrimaryColor,decoration: TextDecoration.underline)),
                               ],
                             ),
-                            Image.asset('assets/images/ticket/belowticket.jpeg'),
+                            GestureDetector(
+                              onTap: (){
+                                _controller.onQrTapped();
+                              },
+                                child: Image.asset('assets/images/ticket/belowticket.jpeg')),
                           ],
                         ),
                       )

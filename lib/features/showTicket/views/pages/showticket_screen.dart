@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:utss/config/theme/app_theme.dart';
-import 'package:utss/features/showTicket/views/pages/ticket_detail_screen.dart';
+import 'package:newuts/features/showTicket/views/pages/ticket_detail_screen.dart';
+
+import '../../../../config/theme/app_theme.dart';
 
 class ShowTicketScreen extends StatefulWidget {
   const ShowTicketScreen({super.key});
@@ -67,7 +68,7 @@ class _ShowTicketScreenState extends State<ShowTicketScreen> {
                 Positioned(
                   left: w * 0.275,
                   top: h * 0.2,
-                  child: Text('21/12/2024 10:36',style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w500,color: myPrimaryColor)),
+                  child: Text('18/02/2025 10:36',style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w500,color: myPrimaryColor)),
                 ),
               ],
             ),
